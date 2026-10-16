@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+<h2>Tell us about yourself</h2>
+{% if error %}<div class="error">{{ error }}</div>{% endif %}
+{% set f = form if form else {} %}
+<form method="post" action="{{ url_for('analyze') }}">
+  <div class="row">
+    <div><label>Full name</label><input name="name" value="{{ f.get('name','') }}" placeholder="e.g. Anjali Reddy"></div>
+    <div><label>City</label><input name="city" value="{{ f.get('city','') }}" placeholder="e.g. Warangal"></div>
+  </div>
+  <div class="row">
+    <div><label>Email (optional)</label><input name="email" value="{{ f.get('email','') }}" type="email"></div>
+    <div><label>Phone (optional)</label><input name="phone" value="{{ f.get('phone','') }}"></div>
+  </div>
+  <label>Your skills *</label>
+  <input name="skills" required value="{{ f.get('skills','') }}" placeholder="e.g. excel, typing, communication, html, canva">
+  <small>Separate skills with commas.</small>
+  <label>Interests</label>
+  <input name="interests" value="{{ f.get('interests','') }}" placeholder="e.g. marketing, design, data">
+  <label>Education</label>
+  <textarea name="education" rows="2" placeholder="B.Com, Kakatiya University, 2025">{{ f.get('education','') }}</textarea>
+  <label>Experience / projects (one per line)</label>
+  <textarea name="experience" rows="3" placeholder="Managed college fest social media pages">{{ f.get('experience','') }}</textarea>
+  <button type="submit">Find my career path</button>
+</form>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+<h2>Hi{% if p.name %} {{ p.name }}{% endif %}, here are your best-fit roles</h2>
+<small>Based on {{ p.skills|length }} skills{% if p.city %} &middot; {{ p.city }}{% endif %}. Fit % = share of the role's key skills you already have.</small>
+</div>
+
+{% for m in matches %}
+<div class="role">
+  <h3>{{ loop.index }}. {{ m.title }}</h3>
+  <div class="meta">{{ m.category|capitalize }} &middot; {{ "Remote-friendly" if m.remote else "On-site / local" }}{% if m.interest_match %} &middot; Matches your interests{% endif %}</div>
+  <strong>{{ m.fit }}% fit</strong>
+  <div class="bar"><span style="width:{{ m.fit }}%"></span></div>
+  {% for s in m.have %}<span class="chip have">&#10003; {{ s }}</span>{% endfor %}
+  {% for s in m.missing %}<span class="chip miss">+ {{ s }}</span>{% endfor %}
+  <form method="post" action="{{ url_for('resume') }}" style="display:block">
+    {% for k in ['name','email','phone','city','education','experience','interests'] %}<input type="hidden" name="{{ k }}" value="{{ p[k] }}">{% endfor %}
+    <input type="hidden" name="skills" value="{{ skills_csv }}">
+    <input type="hidden" name="target_role" value="{{ m.title }}">
+    <button type="submit" class="alt">Download resume for this role</button>
+  </form>
+</div>
+{% endfor %}
+
+<div class="card">
+<h2>Your learning plan</h2>
+{% if plan %}
+<table>
+<tr><th>Skill to learn</th><th>What to study</th><th>Useful for</th></tr>
+{% for c in plan %}
+<tr><td><strong>{{ c.skill|pretty }}</strong></td><td>{{ c.topic }}<br><a href="{{ c.url }}" target="_blank" rel="noopener">Find free courses on IBM SkillsBuild</a></td><td>{{ c.roles_needing }} of your top roles</td></tr>
+{% endfor %}
+</table>
+{% else %}<p>You already have every key skill for your top roles. Start applying!</p>{% endif %}
+</div>
+<a class="btn" href="{{ url_for('index') }}">Start over</a>
+{% endblock %}

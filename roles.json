@@ -1,0 +1,17 @@
+[
+ {"title":"Data Entry Operator","category":"administration","remote":true,"skills":["typing","excel","attention to detail","english","data entry"]},
+ {"title":"Customer Support Executive","category":"support","remote":true,"skills":["communication","english","problem solving","crm","typing"]},
+ {"title":"Junior Web Developer","category":"it","remote":true,"skills":["html","css","javascript","git","problem solving"]},
+ {"title":"Digital Marketing Executive","category":"marketing","remote":true,"skills":["social media","seo","content writing","canva","analytics"]},
+ {"title":"Junior Graphic Designer","category":"design","remote":true,"skills":["canva","photoshop","creativity","typography","communication"]},
+ {"title":"Accounts Assistant","category":"finance","remote":false,"skills":["tally","excel","accounting","gst","attention to detail"]},
+ {"title":"Sales Executive","category":"sales","remote":false,"skills":["communication","negotiation","crm","local language","customer handling"]},
+ {"title":"Office Administrator","category":"administration","remote":false,"skills":["ms office","communication","scheduling","excel","organization"]},
+ {"title":"Content Writer","category":"marketing","remote":true,"skills":["content writing","english","seo","research","editing"]},
+ {"title":"Trainee Data Analyst","category":"data","remote":true,"skills":["excel","sql","python","statistics","data visualization"]},
+ {"title":"IT Support Technician","category":"it","remote":false,"skills":["hardware","networking","windows","troubleshooting","communication"]},
+ {"title":"Trainee HR Executive","category":"hr","remote":false,"skills":["communication","recruitment","ms office","interviewing","organization"]},
+ {"title":"Social Media Executive","category":"marketing","remote":true,"skills":["social media","canva","content writing","creativity","analytics"]},
+ {"title":"QA Tester (Trainee)","category":"it","remote":true,"skills":["testing","attention to detail","sql","problem solving","documentation"]},
+ {"title":"Business Development Associate","category":"sales","remote":true,"skills":["communication","negotiation","crm","english","research"]}
+]
